@@ -10,12 +10,13 @@ import org.openqa.selenium.WebDriver;
 
 import examSelenium.steps.EndUserSteps;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SerenityRunner.class)
 public class MyBirthdaySongStory {
 
-    private static final int SECONDS_TO_KEEP_PAGE_OPEN = 1000;
+    private static final int SECONDS_TO_KEEP_PAGE_OPEN = 10;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -31,9 +32,18 @@ public class MyBirthdaySongStory {
 
         // he retrieves his corresponding birthday song (full name)
         // ...
+        student.enterBirthday("25-1-1998");
+        String resultSong = student.lookForResults();
+        System.out.println(resultSong);
 
         // he open the article with the top 100 songs of all time
         student.open_best_songs_of_all_time_page();
+
+        List<String> bestSongs = student.getAllBestSongTitles();
+
+        for(String song : bestSongs){
+            System.out.println(song);
+        }
 
         // he checks if his songs is in the top (simply tries to match the full name)
         // and then prints the appropriate message in the console
