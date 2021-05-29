@@ -37,7 +37,7 @@ public class MyBirthdaySongStory {
 
         student.enterBirthday("11-4-1970");
         String resultSong = this.adaptResultToListFormat(student.lookForResults());
-        System.out.println(resultSong);
+//        System.out.println(resultSong);
 
         // he open the article with the top 100 songs of all time
         student.open_best_songs_of_all_time_page();
