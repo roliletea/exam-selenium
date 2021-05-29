@@ -43,4 +43,8 @@ public class EndUserSteps {
         wikipediaPage.open();
     }
 
+    @Step
+    public void searchSongName(String songName){
+        wikipediaPage.enter_keywords(songName);
+    }
 }
